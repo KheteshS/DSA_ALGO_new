@@ -22,19 +22,24 @@ class Solution {
         // return -1;
 
         // ------------------------better approach-------------------
-        Map<Integer, Integer> freq = new HashMap<>();
+        // Map<Integer, Integer> freq = new HashMap<>();
 
-        for( int num : nums) {
-            freq.put(num, freq.getOrDefault(num, 0)+1);
-        }
+        // for( int num : nums) {
+        //     freq.put(num, freq.getOrDefault(num, 0)+1);
+        // }
 
-        for(int num: nums) {
-            if(freq.get(num) == 1) {
-                return num;
-            }
-        }
-
-        return -1;
+        // for(int num: nums) {
+        //     if(freq.get(num) == 1) {
+        //         return num;
+        //     }
+        // }
+        // return -1;
         
+        // ------------------------optimal approach----------------------
+        int xor = 0;
+        for( int i=0; i<n;i++) {
+            xor = xor ^ nums[i];
+        }
+        return xor;
     }
 }
