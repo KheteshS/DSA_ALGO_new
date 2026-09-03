@@ -35,33 +35,54 @@ class Solution {
         //     nums[index++] = 2;
         // }
 
-
         // ----------------------------better -----------------------------
         // Count of 0s, 1s, and 2s
-        int cnt0 = 0, cnt1 = 0, cnt2 = 0;
+        // int cnt0 = 0, cnt1 = 0, cnt2 = 0;
 
-        // First pass: Count the number of 0s, 1s, and 2s
-        for (int num : nums) {
-            if (num == 0) cnt0++;
-            else if (num == 1) cnt1++;
-            else cnt2++;
-        }
+        // // First pass: Count the number of 0s, 1s, and 2s
+        // for (int num : nums) {
+        //     if (num == 0) cnt0++;
+        //     else if (num == 1) cnt1++;
+        //     else cnt2++;
+        // }
 
-        // Second pass: Fill the array with 0s, then 1s, then 2s
+        // // Second pass: Fill the array with 0s, then 1s, then 2s
 
-        // Fill the first 'cnt0' elements with 0
-        for (int i = 0; i < cnt0; i++) {
-            nums[i] = 0;
-        }
+        // // Fill the first 'cnt0' elements with 0
+        // for (int i = 0; i < cnt0; i++) {
+        //     nums[i] = 0;
+        // }
 
-        // Fill the next 'cnt1' elements with 1
-        for (int i = cnt0; i < cnt0 + cnt1; i++) {
-            nums[i] = 1;
-        }
+        // // Fill the next 'cnt1' elements with 1
+        // for (int i = cnt0; i < cnt0 + cnt1; i++) {
+        //     nums[i] = 1;
+        // }
 
-        // Fill the remaining elements with 2
-        for (int i = cnt0 + cnt1; i < nums.length; i++) {
-            nums[i] = 2;
+        // // Fill the remaining elements with 2
+        // for (int i = cnt0 + cnt1; i < nums.length; i++) {
+        //     nums[i] = 2;
+        // }
+
+        //  --------------------OPTIMIZED -------------------------
+        // Time Complexity: O(n) The array is traversed only once using the `mid` pointer. Each element is checked at most once, and swaps are done in constant time.
+
+        // Space Complexity: O(1) Only a few integer pointers (`low`, `mid`, `high`) are used. Sorting is done in-place, requiring no additional space.
+        int low = 0, mid = 0, high = nums.length - 1;
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                int temp = nums[mid];
+                nums[mid] = nums[low];
+                nums[low] = temp;
+                low++;
+                mid++;
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                int temp = nums[mid];
+                nums[mid] = nums[high];
+                nums[high] = temp;
+                high--;
+            }
         }
 
     }
