@@ -37,17 +37,29 @@ class Solution {
         // ---------------------------Optimized (Moore's Voting Algo)----------------------------
         int count = 0;
         int el = -1;
-        for(int i = 0;i< n; i++) {
-            if(count == 0) {
+        for (int i = 0; i < n; i++) {
+            if (count == 0) {
                 el = nums[i];
                 count++;
-            } else if(el == nums[i]) {
+            } else if (el == nums[i]) {
                 count++;
             } else {
                 count--;
             }
         }
+
+        // this step should not be done if the majority element always exists in the array.
+        // count = 0;
+        // for (int i = 0; i < n; i++) {
+        //     if (nums[i] == el)
+        //         count++;
+        // }
+        // if (count > n / 2) {
+        //     return el;
+        // } else {
+        //     return -1;
+        // }
         return el;
-        
+
     }
 }
