@@ -18,18 +18,36 @@ class Solution {
         // return -1;
 
         // ------------------------Better ------------------------------
-        HashMap<Integer, Integer> map = new HashMap<>();
+        // Time Complexity: O(N), where N is the size of the input array. This is because we are iterating through the array once to count occurrences and then iterating through the hashmap to find the majority element.
 
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
+        // Space Complexity: O(N), as we are using a hashmap to store the counts of each element, which can take up to N space in the worst case.
 
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > n / 2) {
-                return entry.getKey();
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // for (int num : nums) {
+        //     map.put(num, map.getOrDefault(num, 0) + 1);
+        // }
+
+        // for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        //     if (entry.getValue() > n / 2) {
+        //         return entry.getKey();
+        //     }
+        // }
+        // return -1;
+
+        // ---------------------------Optimized (Moore's Voting Algo)----------------------------
+        int count = 0;
+        int el = -1;
+        for(int i = 0;i< n; i++) {
+            if(count == 0) {
+                el = nums[i];
+                count++;
+            } else if(el == nums[i]) {
+                count++;
+            } else {
+                count--;
             }
         }
-
-        return -1;
+        return el;
+        
     }
 }
