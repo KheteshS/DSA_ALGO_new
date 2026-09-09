@@ -54,16 +54,31 @@ class Solution {
         // return maxi;
 
         // ---------------------------------Optimized (Kadane's Algorithm)---------------
+
+        // Time Complexity: O(n), where n is the number of elements in the array. We traverse the array only once.
+        // Space Complexity: O(1). We use a constant amount of space for variables.
+
+        // Current sum of subarray 
         int sum = 0;
-        for(int i=0; i<n;i++) {
+
+        // Iterate through the array
+        for (int i = 0; i < nums.length; i++) {
+
+            // Add current element to the sum
             sum += nums[i];
-            if(sum > maxi) {
-                maxi =sum;
-            } 
-            if( sum<0) {
+
+            // Update maxi if current sum is greater
+            if (sum > maxi) {
+                maxi = sum;
+            }
+
+            // Reset sum to 0 if it becomes negative
+            if (sum < 0) {
                 sum = 0;
             }
         }
-        return maxi;
+
+        // Return the maximum subarray sum found
+        return (int) maxi;
     }
 }
