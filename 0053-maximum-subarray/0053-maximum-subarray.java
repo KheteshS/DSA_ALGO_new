@@ -61,8 +61,18 @@ class Solution {
         // Current sum of subarray 
         int sum = 0;
 
+        // Starting index of current subarray
+        int start = 0;
+
+        // Indices of the maximum sum subarray
+        int ansStart = -1, ansEnd = -1;
+
         // Iterate through the array
         for (int i = 0; i < nums.length; i++) {
+
+            if (sum == 0) {
+                start = i;
+            }
 
             // Add current element to the sum
             sum += nums[i];
@@ -70,6 +80,8 @@ class Solution {
             // Update maxi if current sum is greater
             if (sum > maxi) {
                 maxi = sum;
+                ansStart = start;
+                ansEnd = i;
             }
 
             // Reset sum to 0 if it becomes negative
@@ -77,6 +89,13 @@ class Solution {
                 sum = 0;
             }
         }
+
+        // Printing the subarray
+        System.out.print("The subarray is: [");
+        for (int i = ansStart; i <= ansEnd; i++) {
+            System.out.print(nums[i] + " ");
+        }
+        System.out.println("]");
 
         // Return the maximum subarray sum found
         return (int) maxi;
