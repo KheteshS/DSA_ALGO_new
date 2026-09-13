@@ -90,12 +90,12 @@ class Solution {
             }
         }
 
-        // Printing the subarray
-        System.out.print("The subarray is: [");
-        for (int i = ansStart; i <= ansEnd; i++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println("]");
+        // // Printing the subarray
+        // System.out.print("The subarray is: [");
+        // for (int i = ansStart; i <= ansEnd; i++) {
+        //     System.out.print(nums[i] + " ");
+        // }
+        // System.out.println("]");
 
         // Return the maximum subarray sum found
         return (int) maxi;
