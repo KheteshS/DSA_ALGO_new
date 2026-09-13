@@ -22,6 +22,9 @@ class Solution {
         // return nums;
 
         // ---------------------better-----------------------------
+        // Time Complexity: O(N) { O(N) for traversing the array once and substituting positives and negatives simultaneously using pointers, where N = size of the array A}.
+        // Space Complexity: O(N) { Extra Space used to store the rearranged elements separately in an array, where N = size of array A}.
+
         int posIndex = 0, negIndex = 1;
         int[] ans = new int[n];
         for (int i = 0; i < n; i++) {
