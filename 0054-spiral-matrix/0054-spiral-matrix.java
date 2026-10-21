@@ -1,4 +1,9 @@
 class Solution {
+
+    /*
+        Time Complexity: O(n * m), because every matrix cell is appended once.
+        Space Complexity: O(1) auxiliary space, because only four boundaries and a few counters are stored. The returned list stores n * m elements.
+     */
     public List<Integer> spiralOrder(int[][] matrix) {
         // if a matrix is empty & has no cells to traverse
         if (matrix.length == 0 || matrix[0].length == 0) {
