@@ -1,4 +1,8 @@
 class Solution {
+    /**
+    Time Complexity: O(n²) , where n is numRows, because every value in the returned triangle is created once.
+    Space Complexity: O(1) auxiliary space is used beyond the returned triangle, and the returned triangle stores O(numRows²) values.
+     */
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> triangle = new ArrayList<>();
 
