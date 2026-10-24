@@ -1,5 +1,8 @@
 class Solution {
 
+    // Time Complexity: O(n²), because transposition touches roughly half the matrix and row reversal touches all rows.
+    // Space Complexity: O(1), because the matrix is modified in place with only temporary variables.
+
     public void reverseRow(int[] row) {
         int left = 0;
         int right = row.length - 1;
